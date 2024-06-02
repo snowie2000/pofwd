@@ -66,6 +66,8 @@ func Forward(src, dst string, timeout time.Duration) (*Forwarder, error) {
 		return nil, err
 	}
 
+	log.Printf("serving on %s %s\n", "udp", forwarder.src)
+
 	go forwarder.janitor()
 	go forwarder.run()
 
